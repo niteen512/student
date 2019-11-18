@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "hibernate.event.merge.entity_copy_observer",
+  "type": "java.lang.String",
+  "description": "A description for 'hibernate.event.merge.entity_copy_observer'"
+}]}
