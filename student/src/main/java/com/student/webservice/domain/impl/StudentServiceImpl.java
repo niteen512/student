@@ -9,12 +9,16 @@ import com.student.webservice.domain.api.Student;
 import com.student.webservice.domain.api.StudentService;
 import com.student.webservice.helper.impl.RequestMapperHelperImpl;
 import com.student.webservice.helper.impl.ResponseMapperHelperImpl;
+import com.student.webservice.helper.impl.UpdateMapperHelperImpl;
 
 @Component
 public class StudentServiceImpl implements StudentService {
 
 	@Autowired
 	StudentDaoImpl studentDaoImpl;
+
+	@Autowired
+	UpdateMapperHelperImpl updateMapperHelperImpl;
 
 	@Autowired
 	RequestMapperHelperImpl requestMapperHelperImpl;
@@ -24,14 +28,14 @@ public class StudentServiceImpl implements StudentService {
 
 	public Student retrieveStudentInfo(Long studentId) {
 		StudentEntity studentEntity = studentDaoImpl.retrieveStudentInfo(studentId);
-		return requestMapperHelperImpl.mapStudentEntityToStudent(studentEntity); 
+		return requestMapperHelperImpl.mapStudentEntityToStudent(studentEntity);
 	}
 
 	public Student saveStudentinfo(Student student) {
 		StudentEntity studentEntity = responseMapperHelperImpl.mapStudentToStudentEntity(student);
-		StudentEntity studentEntityReturned =studentDaoImpl.saveStudentInfo(studentEntity);
+		StudentEntity studentEntityReturned = studentDaoImpl.saveStudentInfo(studentEntity);
 		return requestMapperHelperImpl.mapStudentEntityToStudent(studentEntityReturned);
-		
+
 	}
 
 	public void deleteStudentInfo(Long studentId) {
@@ -39,18 +43,12 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	public Student updateStudentInfo(Long studentId, Student student) {
-		StudentEntity studentEntity =
-				  responseMapperHelperImpl.mapStudentToStudentEntity(student);
-		StudentEntity studentEntityReturned = studentDaoImpl.updateStudentInfo(studentEntity, studentId);
-		return requestMapperHelperImpl.mapStudentEntityToStudent(studentEntityReturned);
-		/*
-		 * StudentEntity studentEntity = studentDaoImpl.retrieveStudentInfo(studentId);
-		 * StudentEntity studentEntityNew =
-		 * responseMapperHelperImpl.mapStudentToStudentEntity(student); StudentEntity
-		 * updatedStudentEntity studentEntity =
-		 * responseMapperHelperImpl.mapStudentEntityToStudentEntity(studentEntity,
-		 * studentEntityNew); studentDaoImpl.saveStudentInfo(studentEntity);
-		 */
+		StudentEntity entity = studentDaoImpl.retrieveStudentInfo(studentId);
+		StudentEntity studentEntityNew = responseMapperHelperImpl.mapStudentToStudentEntity(student);
+		entity = updateMapperHelperImpl.check(entity, studentEntityNew);
+		entity = studentDaoImpl.saveStudentInfo(entity);
+		return requestMapperHelperImpl.mapStudentEntityToStudent(entity);
+
 	}
 
 }

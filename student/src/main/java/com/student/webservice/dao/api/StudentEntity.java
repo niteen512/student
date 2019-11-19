@@ -29,7 +29,7 @@ public class StudentEntity {
 
     private long marks;
     
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "studentEntity"/* ,orphanRemoval=true */)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "studentEntity" ,orphanRemoval=true )
     private List<AddressEntity> addressEntityList; 
 
     
