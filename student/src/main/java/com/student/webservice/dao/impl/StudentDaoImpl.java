@@ -24,7 +24,7 @@ public class StudentDaoImpl implements StudentDao {
 
 	public StudentEntity retrieveStudentInfo(Long studentId) {
 		try {
-			StudentEntity studentEntity = (StudentEntity)studentRepository.findById(studentId).orElseThrow();
+			StudentEntity studentEntity = studentRepository.findById(studentId).get();
 			return studentEntity;
 		} catch (Exception exception) {
 			LoggerFactory.getLogger(StudentDaoImpl.class).info("Exception while retrieving student info with student ID" + studentId, exception);
