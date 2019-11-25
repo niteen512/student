@@ -1,4 +1,4 @@
-package com.student.webservice.domain.api;
+package com.student.webservice.dto;
 
 public class Address {
 
@@ -14,7 +14,7 @@ public class Address {
 
 	private long pinCode;
 
-	private Student student;
+	private StudentRequestDto student;
 
 	public Long getAddressId() {
 		return addreddId;
@@ -56,11 +56,11 @@ public class Address {
 		this.pinCode = pinCode;
 	}
 
-	public Student getStudent() {
+	public StudentRequestDto getStudent() {
 		return student;
 	}
 
-	public void setStudent(Student student) {
+	public void setStudent(StudentRequestDto student) {
 		this.student = student;
 	}
 

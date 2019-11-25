@@ -1,4 +1,4 @@
-package com.student.webservice.dao.api;
+package com.student.webservice.entity;
 
 import java.util.Objects;
 

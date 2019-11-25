@@ -1,4 +1,4 @@
-package com.student.webservice.resource.impl;
+package com.student.webservice.controller;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
@@ -14,39 +14,42 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.student.webservice.domain.api.Student;
-import com.student.webservice.domain.impl.StudentServiceImpl;
+import com.student.webservice.dto.StudentRequestDto;
+import com.student.webservice.dto.StudentResponseDto;
+import com.student.webservice.dto.StudentServiceImpl;
 
 @RestController
-public class StudentResourceImpl {
+public class StudentContoller {
 
 	@Autowired
 	StudentServiceImpl studentServiceImpl;
 
 	@PostMapping("/student")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Student saveStudentInfo(@RequestBody Student student) {
+	@Produces(MediaType.APPLICATION_JSON)
+	public StudentResponseDto saveStudentInfo(@RequestBody StudentRequestDto student) {
 		return studentServiceImpl.saveStudentinfo(student);
 	}
 
 	@GetMapping("/student/{studentId}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@ResponseBody
-	public Student getStudentInfo(@PathVariable(value = "studentId") Long studentId) {
+	public StudentResponseDto getStudentInfo(@PathVariable(value = "studentId") Long studentId) {
 		return studentServiceImpl.retrieveStudentInfo(studentId);
 	}
 
 	@PutMapping("/student/{studentId}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Student updateStudentInfo(@PathVariable(value = "studentId") Long studentId,@RequestBody Student student) {
+	@Produces(MediaType.APPLICATION_JSON)
+	public StudentResponseDto updateStudentInfo(@PathVariable(value = "studentId") Long studentId,@RequestBody StudentRequestDto student) {
 		return studentServiceImpl.updateStudentInfo(studentId,student);
 	}
 
 	@DeleteMapping("/student/{studentId}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@ResponseBody
-	public void deleteStudentInfo(@PathVariable(value = "studentId") Long studentId) {
-		studentServiceImpl.deleteStudentInfo(studentId);
+	public StudentResponseDto deleteStudentInfo(@PathVariable(value = "studentId") Long studentId) {
+		return studentServiceImpl.deleteStudentInfo(studentId);
 
 	}
 

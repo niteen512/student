@@ -1,12 +1,12 @@
-package com.student.webservice.helper.impl;
+package com.student.webservice.helper;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.student.webservice.dao.api.AddressEntity;
-import com.student.webservice.dao.api.StudentEntity;
+import com.student.webservice.entity.AddressEntity;
+import com.student.webservice.entity.StudentEntity;
 @Component
 public class UpdateMapperHelperImpl {
 	public StudentEntity check(StudentEntity entity,StudentEntity studentEntity) {

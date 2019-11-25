@@ -1,4 +1,4 @@
-package com.student.webservice.domain.api;
+package com.student.webservice.dto;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 
 
 
-public class Student { 
+public class StudentRequestDto { 
 
     private Long studentId;
 	

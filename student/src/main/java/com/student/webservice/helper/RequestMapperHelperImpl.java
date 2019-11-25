@@ -1,23 +1,22 @@
-package com.student.webservice.helper.impl;
+package com.student.webservice.helper;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.student.webservice.dao.api.AddressEntity;
-import com.student.webservice.dao.api.StudentEntity;
-import com.student.webservice.domain.api.Address;
-import com.student.webservice.domain.api.Student;
-import com.student.webservice.helper.api.RequestMapperHelper;
+import com.student.webservice.dto.Address;
+import com.student.webservice.dto.StudentRequestDto;
+import com.student.webservice.entity.AddressEntity;
+import com.student.webservice.entity.StudentEntity;
 
 @Component
-public class RequestMapperHelperImpl implements RequestMapperHelper{
+public class RequestMapperHelperImpl {
 	
 	
 
-	public Student mapStudentEntityToStudent(StudentEntity studentEntity) {
-		Student student=new Student();
+	public StudentRequestDto mapStudentEntityToStudentResponseDto(StudentEntity studentEntity) {
+		StudentRequestDto student=new StudentRequestDto();
 		student.setStudentId(studentEntity.getStudentId());
 		student.setFirstName(studentEntity.getFirstName());
 		student.setLastName(studentEntity.getLastName());
