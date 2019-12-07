@@ -1,4 +1,4 @@
-package com.student.webservice.dao.api;
+package com.student.webservice.entity;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.util.AutoPopulatingList;
 
 public class StudentEntityTest {
 	@Test

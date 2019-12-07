@@ -1,4 +1,4 @@
-package com.student.webservice.domain.api;
+package com.student.webservice.dto;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -13,7 +13,7 @@ public class AddressTest {
 		address.setAddressType("Primary");
 		address.setDistrict("district");
 		address.setPinCode(11L);
-		address.setStudent(new Student());
+		address.setStudent(new StudentRequestDto());
 		address.setTown("town");
 		address.setVillage("village");
 		assertEquals(1L,address.getAddressId());

@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 
 @Entity
-@Table(name = "Address")	
+@Table(name = "address")	
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property="addreddId")
 public class AddressEntity {
 	

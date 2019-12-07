@@ -28,7 +28,7 @@ public class StudentServiceImpl {
 	public StudentResponseDto retrieveStudentInfo(Long studentId) {
 		StudentEntity studentEntity = studentDaoImpl.retrieveStudentInfo(studentId);
 		if(studentEntity==null) {
-			return new StudentResponseDto(null,"Student Infomation not found for student with ID"+studentId,null);
+			return new StudentResponseDto(null,"Student Infomation not found for student with ID: "+studentId,null);
 		}
 		return new StudentResponseDto(requestMapperHelperImpl.mapStudentEntityToStudentResponseDto(studentEntity),"Student Infomation Retrieved Successfully",HttpStatus.OK.toString());
 	}
@@ -42,16 +42,18 @@ public class StudentServiceImpl {
 	public StudentResponseDto deleteStudentInfo(Long studentId) {
 		StudentEntity studentEntity = studentDaoImpl.deleteStudentInfo(studentId);
 		if(studentEntity==null) {
-			return new StudentResponseDto(null,"No Student Infomation present with ID"+studentId,null);
+			return new StudentResponseDto(null,"No Student Infomation present with ID: "+studentId,null);
 		}
 		return new StudentResponseDto(requestMapperHelperImpl.mapStudentEntityToStudentResponseDto(studentEntity),"Student Infomation Deleted Successfully for student with ID:"+studentId,HttpStatus.OK.toString());
 	}
 
 	public StudentResponseDto updateStudentInfo(Long studentId, StudentRequestDto student) {
 		StudentEntity studentEntity = responseMapperHelperImpl.mapStudentToStudentEntity(student);
-		studentEntity = studentDaoImpl.updateStudentInfo(studentEntity, studentId);
+		StudentEntity entity = studentDaoImpl.retrieveStudentInfo(studentId);
+		studentEntity= updateMapperHelperImpl.mergeExistingAndNew(entity,studentEntity);
+		studentEntity = studentDaoImpl.saveStudentInfo(studentEntity);
 		if(studentEntity==null) {
-			return new StudentResponseDto(null,"No Student Infomation present with ID"+studentId,null);
+			return new StudentResponseDto(null,"No Student Infomation present with ID: "+studentId,null);
 		}
 		return new StudentResponseDto(requestMapperHelperImpl.mapStudentEntityToStudentResponseDto(studentEntity),"Student Infomation Updated Successfully",HttpStatus.OK.toString());
 

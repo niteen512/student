@@ -36,13 +36,5 @@ public class ResponseMapperHelperImpl {
 		return studentEntity;
 	}
 	
-	public StudentEntity mapStudentEntityToStudentEntity(StudentEntity studentEntity,StudentEntity studentEntityNew) {
-		studentEntity.setStudentId(studentEntityNew.getStudentId());
-		studentEntity.setFirstName(studentEntityNew.getFirstName());
-		studentEntity.setLastName(studentEntityNew.getLastName());
-		studentEntity.setMarks(studentEntityNew.getMarks());
-		studentEntity.setAddressEntityList(studentEntityNew.getAddressEntityList());
-		return studentEntity;
-	}
 
 }

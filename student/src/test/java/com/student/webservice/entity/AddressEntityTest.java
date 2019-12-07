@@ -1,4 +1,4 @@
-package com.student.webservice.dao.api;
+package com.student.webservice.entity;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;

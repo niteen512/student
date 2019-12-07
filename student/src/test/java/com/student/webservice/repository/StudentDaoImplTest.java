@@ -1,4 +1,4 @@
-package com.student.webservice.dao.impl;
+package com.student.webservice.repository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -13,8 +13,8 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import com.student.webservice.dao.api.StudentEntity;
-import com.student.webservice.dao.api.StudentRepository;
+import com.student.webservice.entity.StudentEntity;
+
 @RunWith(MockitoJUnitRunner.class)
 public class StudentDaoImplTest {
 	

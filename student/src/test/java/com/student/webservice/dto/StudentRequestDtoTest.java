@@ -1,4 +1,4 @@
-package com.student.webservice.domain.api;
+package com.student.webservice.dto;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -8,10 +8,10 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-public class StudentTest {
+public class StudentRequestDtoTest {
 	@Test
 	public void testStudentGettersSetters() {
-		Student student = new Student();
+		StudentRequestDto student = new StudentRequestDto();
 		student.setStudentId((long) 11);
 		student.setFirstName("Niteen");
 		student.setLastName("Lakhe");

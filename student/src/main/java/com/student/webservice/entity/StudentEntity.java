@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 
 @Entity
-@Table(name = "StudentDetails")
+@Table(name = "student_details")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property="studentId")
 public class StudentEntity { 
 	@Id
@@ -29,7 +29,7 @@ public class StudentEntity {
 
     private long marks;
     
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "studentEntity" ,orphanRemoval=true )
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "studentEntity"/* ,orphanRemoval=true */)
     private List<AddressEntity> addressEntityList; 
 
     
