@@ -30,6 +30,14 @@ public class UpdateMapperHelperImplTest {
 	}
 	
 	@Test
+	public void testMergeExistingAndNewDifferentAddressId() {
+		StudentEntity studentEntity = getStudentEntity();
+		StudentEntity studentEntity1 = getStudentEntity();
+		studentEntity1.getAddressEntityList().get(0).setAddressId(2L);
+		assertEquals(1, updateMapperHelperImpl.mergeExistingAndNew(studentEntity, studentEntity1).getStudentId());
+	}
+	
+	@Test
 	public void testMergeExistingAndNewNull() {
 		StudentEntity entity = null;
 		StudentEntity studentEntity = getStudentEntity();

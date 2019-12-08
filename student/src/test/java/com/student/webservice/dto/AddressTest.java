@@ -21,6 +21,8 @@ public class AddressTest {
 		assertEquals("district", address.getDistrict());
 		assertEquals(11L, address.getPinCode());
 		assertNotNull(address.getStudent());
+		assertEquals("village",address.getVillage());
+		assertEquals("town", address.getTown());
 	}
 
 }

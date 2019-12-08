@@ -45,7 +45,7 @@ public class StudentDaoImpl {
 			return studentEntity.get();
 			}
 		} catch (Exception exception) {
-			LoggerFactory.getLogger(StudentDaoImpl.class).info("Exception while saving student info with student ID" +studentId ,
+			LoggerFactory.getLogger(StudentDaoImpl.class).info("Exception while deleting student info with student ID" +studentId ,
 					exception);
 		}
 		return null;
