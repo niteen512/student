@@ -50,11 +50,12 @@ public class StudentServiceImpl {
 	public StudentResponseDto updateStudentInfo(Long studentId, StudentRequestDto student) {
 		StudentEntity studentEntity = responseMapperHelperImpl.mapStudentToStudentEntity(student);
 		StudentEntity entity = studentDaoImpl.retrieveStudentInfo(studentId);
-		studentEntity= updateMapperHelperImpl.mergeExistingAndNew(entity,studentEntity);
-		studentEntity = studentDaoImpl.saveStudentInfo(studentEntity);
-		if(studentEntity==null) {
+		if(entity==null) {
 			return new StudentResponseDto(null,"No Student Infomation present with ID: "+studentId,null);
 		}
+		studentEntity= updateMapperHelperImpl.mergeExistingAndNew(entity,studentEntity);
+		studentEntity = studentDaoImpl.saveStudentInfo(studentEntity);
+		
 		return new StudentResponseDto(requestMapperHelperImpl.mapStudentEntityToStudentResponseDto(studentEntity),"Student Infomation Updated Successfully",HttpStatus.OK.toString());
 
 	}

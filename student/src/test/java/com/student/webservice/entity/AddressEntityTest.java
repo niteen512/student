@@ -35,7 +35,7 @@ public class AddressEntityTest {
 	}
 
 	@Test
-	public void testEqualsEqual() {
+	public void testEquals() {
 		AddressEntity addressEntity = new AddressEntity();
 		addressEntity.setAddressId(1L);
 
@@ -44,7 +44,7 @@ public class AddressEntityTest {
 
 	}
 	@Test
-	public void testEquals() {
+	public void testEqualsWhenContentsEqualWhenSameObject() {
 		AddressEntity addressEntity = new AddressEntity();
 		addressEntity.setAddressId(1L);
 
@@ -65,7 +65,7 @@ public class AddressEntityTest {
 	}
 
 	@Test
-	public void testEqualsObjectl() {
+	public void testEqualsObject() {
 		AddressEntity addressEntity = new AddressEntity();
 		addressEntity.setAddressId(1L);
 		Object o = new Object();

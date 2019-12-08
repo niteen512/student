@@ -36,7 +36,7 @@ public class StudentEntityTest {
 	}
 
 	@Test
-	public void testEqualsEqual() {
+	public void testEqualsWhenSameObject() {
 		StudentEntity studentEntity = new StudentEntity();
 		studentEntity.setStudentId((long) 11);
 
@@ -45,7 +45,7 @@ public class StudentEntityTest {
 
 	}
 	@Test
-	public void testEquals() {
+	public void testEqualsWhenSameObjectContents() {
 		StudentEntity studentEntity = new StudentEntity();
 		studentEntity.setStudentId((long) 11);
 

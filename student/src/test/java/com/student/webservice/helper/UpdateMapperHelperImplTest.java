@@ -38,7 +38,7 @@ public class UpdateMapperHelperImplTest {
 	}
 	
 	@Test
-	public void testMergeExistingAndNewNull() {
+	public void testMergeExistingAndNewWhenExistingEntityNull() {
 		StudentEntity entity = null;
 		StudentEntity studentEntity = getStudentEntity();
 		assertEquals(1, updateMapperHelperImpl.mergeExistingAndNew(entity, studentEntity).getStudentId());

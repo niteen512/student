@@ -48,7 +48,7 @@ public class StudentServiceImplTest {
 	}
 	
 	@Test
-	public void testRetrieveStudentInfoNull() {
+	public void testRetrieveStudentInfoRecordNotPresent() {
 		when(studentDaoImpl.retrieveStudentInfo(Mockito.anyLong())).thenReturn(null);
 		assertEquals("Student Infomation not found for student with ID: 1", studentServiceImpl.retrieveStudentInfo(1L).message);
 		studentServiceImpl.retrieveStudentInfo(1L);
@@ -72,7 +72,7 @@ public class StudentServiceImplTest {
 	}
 	
 	@Test
-	public void testDeleteStudentInfoNull() {
+	public void testDeleteStudentInfoRecordNotPresent() {
 		when(studentDaoImpl.deleteStudentInfo(Mockito.anyLong())).thenReturn(null);
 		assertEquals("No Student Infomation present with ID: 1", studentServiceImpl.deleteStudentInfo(1L).message);
 	}
@@ -90,7 +90,7 @@ public class StudentServiceImplTest {
 	}
 	
 	@Test
-	public void testUpdateStudentInfoNull(){
+	public void testUpdateStudentInfoRecordNotPresent(){
 		StudentEntity studentEntity = getStudentEntity();
 		StudentRequestDto studentRequestDto = getStudentRequestDto();
 		when(responseMapperHelperImpl.mapStudentToStudentEntity(studentRequestDto)).thenReturn(studentEntity);
